@@ -1,4 +1,5 @@
 import random
+
 rock = '''
     _______
 ---'   ____)
@@ -30,35 +31,40 @@ scissors = '''
 
 rps = [rock, paper, scissors]
 
-num = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for scissors: "))
+num = int(
+    input(
+        "What do you choose? Type 0 for Rock, 1 for Paper or 2 for scissors: ")
+)
+if num in range(0, 3):
+    user_choice = rps[num]
+    computer_choice = random.choice(rps)
 
-user_choice = rps[num]
-computer_choice = random.choice(rps)
+    print(user_choice)
+    print("Computer chose:")
+    print(computer_choice)
 
-print(user_choice)
-print("Computer chose:")
-print(computer_choice)
+    winner = "computer"
+    if user_choice == rock:
+        if computer_choice == scissors:
+            winner = "user"
+        elif computer_choice == rock:
+            winner == "draw"
+    if user_choice == paper:
+        if computer_choice == rock:
+            winner = "user"
+        elif computer_choice == paper:
+            winner = "draw"
+    if user_choice == scissors:
+        if computer_choice == paper:
+            winner = "user"
+        elif computer_choice == scissors:
+            winner == "draw"
 
-winner = "computer"
-if user_choice == rock:
-  if computer_choice == scissors:
-    winner = "user"
-  elif computer_choice == rock:
-    winner == "draw"
-if user_choice == paper:
-  if computer_choice == rock:
-    winner = "user"
-  elif computer_choice == paper:
-    winner = "draw"
-if user_choice == scissors:
-  if computer_choice == paper:
-    winner = "user"
-  elif computer_choice == scissors:
-    winner == "draw"
-
-if winner == "draw":
-  print("It is a draw")
-elif winner == "user":
-  print("You win")
+    if winner == "draw":
+        print("It is a draw")
+    elif winner == "user":
+        print("You win")
+    else:
+        print("You lose")
 else:
-  print("You lose")
+    print("Invalid choice")
