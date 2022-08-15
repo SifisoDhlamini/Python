@@ -1,0 +1,12 @@
+**************Create a GPA calculator*******************
+1. Register modules
+2. Modules must have grades
+3. Grades must have matching gpa -> function 1 to calculate GPA
+4. Have a function that calculates -> total GPA
+5. Have a function that calculates Final Semester Grade
+6. Hava a class for Semesters. 
+7. Have a class for students
+8. Randomly generate data for each students
+9. Print function (not to be tested)
+10. Learn how to use faker-schema 0.1.4 from PyPI to generate data
+
