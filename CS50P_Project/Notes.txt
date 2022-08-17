@@ -1,12 +1,12 @@
-**************Create a GPA calculator*******************
-1. Register modules
-2. Modules must have grades
-3. Grades must have matching gpa -> function 1 to calculate GPA
-4. Have a function that calculates -> total GPA
-5. Have a function that calculates Final Semester Grade
-6. Hava a class for Semesters. 
-7. Have a class for students
-8. Randomly generate data for each students
-9. Print function (not to be tested)
-10. Learn how to use faker-schema 0.1.4 from PyPI to generate data
+1. Consume API provided by Code.org Website is https://code.org/promote
+2. API url: https://code.org/schools.json
+3. Create a Menu that gives options to answer questions about data:
+    a) How many Schools are there of note
+    b) List of free schools - Money Needed false
+    c) Search school by name - name, website, level, country, contact_name, contact_number, contact_email, description - List of dictionaries
+    d) Search school by level - "Preschool", "Elementary", "Middle School", "High School", "College" 
+    e) Search by programming language - name, country, website
+    f) Search by country - List
+    g) Search by city - name, website, level, country, contact_name, contact_number, contact_email- List
+
 
