@@ -61,11 +61,11 @@ def school_by_name(schools, name):
 
 #find school by level
 def school_by_level(schools, level):
-    return list(filter(lambda school: school["level"] == level, schools))
+    return list(filter(lambda school: school["levels"] == level, schools))
 
 #find school by language
 def school_by_language(schools, language):
-    return list(filter(lambda school: school["language"] == language, schools))
+    return list(filter(lambda school: school["languages"] == language, schools))
 
 #find school by city
 def school_by_city(schools, city):
@@ -77,14 +77,17 @@ def school_by_country(schools, country):
 
 #print search resluts to screen
 def print_results(results):
-    for school in results:
-        print(school["name"])
-        print(school["level"])
-        print(school["language"])
-        print(school["city"])
-        print(school["country"])
-        print(school["money_needed"])
-        print("")
+    if results:
+        for school in results:
+            print(school["name"])
+            print(school["levels"])
+            print(school["languages"])
+            print(school["city"])
+            print(school["country"])
+            print(school["money_needed"])
+            print("")
+    else:
+        print("No results found") 
 
 if __name__ == "__main__":
     main()
