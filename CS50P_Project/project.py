@@ -42,7 +42,7 @@ def menu():
     7 - Search by city
     8 - Exit
     """)
-    return input("Enter your choice: ")
+    return input("Enter your choice: ").strip()
 
 #count number of schools returned by API
 def count_schools(schools):
