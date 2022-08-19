@@ -5,32 +5,47 @@ schools = response["schools"]
 
 def main():
     choice = int(menu())
+    while choice != 8:
+        if choice == 1:
+            print_results(count_schools(schools))
+        elif choice == 2:
+            print_results(FreeSchools(schools))
+        elif choice == 3:
+            name = input("Enter school name: ")
+            print_results(school_by_name(schools, name))
+        elif choice == 4:
+            level = input("Enter school level: ")
+            print_results(school_by_level(schools, level))
+        elif choice == 5:
+            language = input("Enter programming language: ")
+            print_results(school_by_language(schools, language))
+        elif choice == 6:
+            country = input("Enter country: ")
+            print_results(school_by_country(schools, country))
+        elif choice == 7:
+            city = input("Enter city: ")
+            print_results(school_by_city(schools, city))
+        else:
+            print("Invalid choice")
+        choice = int(menu())
 
 #create menu for user to selet choice
-"""
- Create a Menu that gives options to answer questions about data:
-    a) How many Schools are there of note
-    b) List of free schools - Money Needed false
-    c) Search school by name - name, website, level, country, contact_name, contact_number, contact_email, description - List of dictionaries
-    d) Search school by level - "Preschool", "Elementary", "Middle School", "High School", "College" 
-    e) Search by programming language - name, country, website
-    f) Search by country - List
-    g) Search by city - name, website, level, country, contact_name, contact_number, contact_email- List
-"""
 def menu():
     print("""
     1 - How many Schools are there of note
-    2 - List of free schools - Money Needed false
-    3 - Search school by name - name, website, level, country, contact_name, contact_number, contact_email, description - List of dictionaries
-    4 - Search school by level - "Preschool", "Elementary", "Middle School", "High School", "College" 
-    5 - Search by programming language - name, country, website
-    6 - Search by country - List
-    7 - Search by city - name, website, level, country, contact_name, contact_number, contact_email- List
+    2 - List of free schools
+    3 - Search school by name
+    4 - Search school by level 
+    5 - Search by programming language 
+    6 - Search by country
+    7 - Search by city
     8 - Exit
     """)
     return input("Enter your choice: ")
 
-
+#count number of schools returned by API
+def count_schools(schools):
+    return len(schools)
 
 #helper function to check if school is free
 def isFree(school):
@@ -40,6 +55,36 @@ def isFree(school):
 def FreeSchools(schools):
         return list(filter(isFree, schools))
 
+#find school by name
+def school_by_name(schools, name):
+    return list(filter(lambda school: school["name"] == name, schools))
+
+#find school by level
+def school_by_level(schools, level):
+    return list(filter(lambda school: school["level"] == level, schools))
+
+#find school by language
+def school_by_language(schools, language):
+    return list(filter(lambda school: school["language"] == language, schools))
+
+#find school by city
+def school_by_city(schools, city):
+    return list(filter(lambda school: school["city"] == city, schools))
+
  #find school by country       
 def school_by_country(schools, country):
     return list(filter(lambda school: school["country"] == country, schools))
+
+#print search resluts to screen
+def print_results(results):
+    for school in results:
+        print(school["name"])
+        print(school["level"])
+        print(school["language"])
+        print(school["city"])
+        print(school["country"])
+        print(school["money_needed"])
+        print("")
+
+if __name__ == "__main__":
+    main()
