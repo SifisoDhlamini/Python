@@ -58,23 +58,23 @@ def FreeSchools(schools):
 
 #find school by name
 def school_by_name(schools, name):
-    return list(filter(lambda school: school["name"] == name, schools))
+    return list(filter(lambda school: school["name"].title() == name.title(), schools))
 
 #find school by level
 def school_by_level(schools, level):
-    return list(filter(lambda school: level in school["levels"], schools))
+    return list(filter(lambda school: level.title() in school["levels"], schools))
 
 #find school by language
 def school_by_language(schools, language):
-    return list(filter(lambda school: language in school["languages"], schools))
+    return list(filter(lambda school: language.title in school["languages"], schools))
 
 #find school by city
 def school_by_city(schools, city):
-    return list(filter(lambda school: school["city"] == city, schools))
+    return list(filter(lambda school: school["city"] == city.title(), schools))
 
  #find school by country       
 def school_by_country(schools, country):
-    return list(filter(lambda school: school["country"] == country, schools))
+    return list(filter(lambda school: school["country"] == country.title(), schools))
 
 #print search resluts to screen
 def print_results(results):
