@@ -66,7 +66,7 @@ def school_by_level(schools, level):
 
 #find school by language
 def school_by_language(schools, language):
-    return list(filter(lambda school: language.title in school["languages"], schools))
+    return list(filter(lambda school: language.title() in school["languages"], schools))
 
 #find school by city
 def school_by_city(schools, city):
@@ -78,7 +78,7 @@ def school_by_country(schools, country):
 
 #print search resluts to screen
 def print_results(results):
-    if results:
+    if len(results) > 0:
         for school in results:
             print(f"Name: {school['name']}")
             print(f"Website: {school['website']}")
