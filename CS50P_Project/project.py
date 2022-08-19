@@ -7,7 +7,8 @@ def main():
     choice = int(menu())
     while choice != 8:
         if choice == 1:
-            print_results(count_schools(schools))
+            print(f"{count_schools(schools)} Schools on record")
+            print("*" * 20)
         elif choice == 2:
             print_results(FreeSchools(schools))
         elif choice == 3:
@@ -61,11 +62,11 @@ def school_by_name(schools, name):
 
 #find school by level
 def school_by_level(schools, level):
-    return list(filter(lambda school: school["levels"] == level, schools))
+    return list(filter(lambda school: level in school["levels"], schools))
 
 #find school by language
 def school_by_language(schools, language):
-    return list(filter(lambda school: school["languages"] == language, schools))
+    return list(filter(lambda school: language in school["languages"], schools))
 
 #find school by city
 def school_by_city(schools, city):
@@ -83,7 +84,7 @@ def print_results(results):
             print(f"Website: {school['website']}")
             print(f"Contact Number: {school['contact_number']}")
             print(f"Contact Email: {school['contact_email']}")           
-            print("")
+            print("*" * 20)
     else:
         print("No results found") 
 
