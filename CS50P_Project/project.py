@@ -79,12 +79,10 @@ def school_by_country(schools, country):
 def print_results(results):
     if results:
         for school in results:
-            print(school["name"])
-            print(school["levels"])
-            print(school["languages"])
-            print(school["city"])
-            print(school["country"])
-            print(school["money_needed"])
+            print(f"Name: {school['name']}")
+            print(f"Website: {school['website']}")
+            print(f"Contact Number: {school['contact_number']}")
+            print(f"Contact Email: {school['contact_email']}")           
             print("")
     else:
         print("No results found") 
